@@ -12,7 +12,14 @@ export default function App() {
   })
   return (
     <>
-      <OrbitControls makeDefault autoRotate autoRotateSpeed={0.5} zoomSpeed={0.1} />
+      <OrbitControls 
+        makeDefault 
+        autoRotate 
+        autoRotateSpeed={0.5} 
+        zoomSpeed={0.1}
+        enableZoom={false} // Disable scroll zoom
+        enablePan={false}  // Optional: disable panning if you don't need it
+      />
       <CameraShake yawFrequency={1} maxYaw={0.05} pitchFrequency={1} maxPitch={0.05} rollFrequency={0.5} maxRoll={0.5} intensity={0.2} />
       <Particles {...props} />
     </>
