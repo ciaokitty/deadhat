@@ -12,7 +12,8 @@ body,
 }
 
 body {
-  background: #181820;
+  background: #000000;
+  /* background: linear-gradient(to bottom, #220b3a, #16213e); */
 }
 
 canvas {
