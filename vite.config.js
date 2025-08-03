@@ -8,7 +8,17 @@ import glsl from 'vite-plugin-glsl';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-    plugins: [react(), glsl(), dts({ include: 'lib', insertTypesEntry: true }), tsConfigPaths(), glslify()],
+    plugins: [
+        react(), 
+        glsl(), 
+        dts({ include: 'lib', insertTypesEntry: true }), 
+        tsConfigPaths(), 
+        glslify({
+            include: ['src/**/*.js', 'src/**/*.ts', 'src/**/*.jsx', 'src/**/*.tsx'],
+            exclude: ['lib/**', 'node_modules/**'],
+            transformFiles: false
+        }),
+    ],
 
     resolve: {
         alias: [
