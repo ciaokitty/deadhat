@@ -2,7 +2,7 @@ import { OrbitControls, CameraShake } from '@react-three/drei'
 import { useControls } from 'leva'
 import { Particles } from './Particles'
 
-export default function App() {
+export default function App({ scale = 1, ...appProps }) {
   const props = useControls({
     focus: { value: 5.1, min: 4.5, max: 7.5, step: 0.01 },
     speed: { value: 75, min: 0.1, max: 100, step: 0.1 },
@@ -21,7 +21,9 @@ export default function App() {
         enablePan={false}  // Optional: disable panning if you don't need it
       />
       <CameraShake yawFrequency={1} maxYaw={0.05} pitchFrequency={1} maxPitch={0.05} rollFrequency={0.5} maxRoll={0.5} intensity={0.2} />
-      <Particles {...props} />
+      <group scale={scale}>
+        <Particles {...props} />
+      </group>
     </>
   )
 }
